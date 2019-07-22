@@ -4,17 +4,18 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hi!</Text>
-      <Text style={styles.text}>Hello, world!</Text>
+      <Text style={[styles.textBig, styles.textBlue]}>Hello, world!</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {
+  textBig: {
     fontSize: 40,
+  },
+  textBlue: {
     color: 'blue',
-  },  
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
