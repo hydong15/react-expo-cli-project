@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, ScrollView, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Constants } from 'expo';
 
 export default class App extends React.Component {
@@ -82,7 +82,7 @@ export default class App extends React.Component {
 
   renderItem({name}) {
     return (
-      <View style={styles.item} key={name}>
+      <View style={styles.item}>
         <Text style={styles.text}>{name}</Text>
       </View>
     );
@@ -90,9 +90,11 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {this.fruits.map(this.renderItem)}
-      </ScrollView>
+      <FlatList style={styles.container}
+                renderItem={({item}) => this.renderItem(item)}
+                keyExtractor={(item) => item.name}
+                data={this.fruits}
+      />
     );
   }
 }
