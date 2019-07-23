@@ -7,7 +7,7 @@ const APP_ID = 'ed47fd9ca2f0ce282cf330ecfd9fa587';
 export default class WeatherDetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: `Weather Info: ${navigation.getParam('city')}`,
+      title: `Weather Info: ${navigation.getParam('city', 'Unknown')}`,
     };
   };
   
