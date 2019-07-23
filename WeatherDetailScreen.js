@@ -42,7 +42,7 @@ export default class WeatherDetailScreen extends React.Component {
       )
     }
     
-    console.log(JSON.stringify(this.state));
+    // console.log(JSON.stringify(this.state));
     let celsius = this.state.main.temp - 273.15;
     let weatherMain = this.state.weather[0].main;
     let iconId = this.state.weather[0].icon;
@@ -51,7 +51,7 @@ export default class WeatherDetailScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.temp}>{celsius.toFixed(1)}°</Text>
         <Text style={styles.main}>{weatherMain}</Text>
-        <Image source={{uri: `http://openweathermap.org/img/wn/${iconId}@2x.png`, width: 200, height: 200}} style={styles.image}/>
+        <Image source={{uri: `http://openweathermap.org/img/wn/${iconId}@2x.png`, width: 250, height: 250}} style={styles.image}/>
       </View>
       );
     }
@@ -79,6 +79,7 @@ export default class WeatherDetailScreen extends React.Component {
       image: {
         marginTop: 10,
         alignSelf: "center",
-        backgroundColor: '#acacac',
+        borderRadius: 50,
+        backgroundColor: '#d1d1d1',
       }
     });

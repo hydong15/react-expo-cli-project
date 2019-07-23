@@ -66,7 +66,7 @@ export default class CityList extends React.Component {
         height: 50,
         justifyContent: 'center',
         
-        borderColor: 'orange',
+        borderColor: '#acacac',
         borderWidth: 1,
       },
       
