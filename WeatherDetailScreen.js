@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Constants } from 'expo';
 
+const APP_ID = 'ed47fd9ca2f0ce282cf330ecfd9fa587';
+
 export default class WeatherDetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: `Weather Info: ${navigation.getParam('city', 'Unknown')}`,
+      title: `Weather Info: ${navigation.getParam('city')}`,
     };
   };
   
@@ -19,10 +21,9 @@ export default class WeatherDetailScreen extends React.Component {
   
   componentDidMount() {
     const { navigation } = this.props;
-    // const city = navigation.getParam('city', null);
-    const city = 'Daejeon';
+    const city = navigation.getParam('city');
     
-    fetch(`http://demo6468405.mockable.io/weather-crawlers/current-weathers/by-city-name/${city}`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APP_ID}`)
     .then(response => response.json())
     .then(info => {
       this.setState({
